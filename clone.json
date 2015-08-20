@@ -1,37 +1,42 @@
 [
     {
-        "unique": 0, 
         "total": 0, 
+        "unique": 0, 
         "bucket": 1438905600
     }, 
     {
-        "total": 0, 
         "unique": 0, 
+        "total": 0, 
         "bucket": 1438992000
     }, 
     {
-        "unique": 0, 
         "total": 0, 
+        "unique": 0, 
         "bucket": 1439078400
     }, 
     {
-        "total": 0, 
         "unique": 0, 
+        "total": 0, 
         "bucket": 1439164800
     }, 
     {
-        "unique": 0, 
         "total": 0, 
+        "unique": 0, 
         "bucket": 1439251200
     }, 
     {
+        "unique": 0, 
+        "total": 0, 
+        "bucket": 1439337600
+    }, 
+    {
         "total": 0, 
         "unique": 0, 
-        "bucket": 1439337600
+        "bucket": 1439424000
     }, 
     {
         "unique": 0, 
         "total": 0, 
-        "bucket": 1439424000
+        "bucket": 1439510400
     }
 ]
