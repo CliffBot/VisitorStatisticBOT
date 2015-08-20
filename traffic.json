@@ -1,7 +1,12 @@
 [
     {
+        "total": 0, 
+        "unique": 0, 
+        "bucket": 1438905600
+    }, 
+    {
         "unique": 0, 
         "total": 0, 
-        "bucket": 1438905600
+        "bucket": 1438992000
     }
 ]
