@@ -1,27 +1,32 @@
 [
     {
-        "unique": 0, 
         "total": 0, 
+        "unique": 0, 
         "bucket": 1438905600
     }, 
     {
-        "total": 0, 
         "unique": 0, 
+        "total": 0, 
         "bucket": 1438992000
     }, 
     {
-        "unique": 0, 
         "total": 0, 
+        "unique": 0, 
         "bucket": 1439078400
     }, 
     {
+        "unique": 0, 
+        "total": 0, 
+        "bucket": 1439164800
+    }, 
+    {
         "total": 0, 
         "unique": 0, 
-        "bucket": 1439164800
+        "bucket": 1439251200
     }, 
     {
         "unique": 0, 
         "total": 0, 
-        "bucket": 1439251200
+        "bucket": 1439337600
     }
 ]
