@@ -59,8 +59,8 @@ d3.json(url_traffic,function(error, flights) {
         .dimension(date)
         .legend(dc.legend().x(100).y(100).itemHeight(13).gap(5))
         .compose([
-          dc.lineChart("#dc-line-chart").group(total, "Visitors").colors("blue"),
-          dc.lineChart("#dc-line-chart").group(c_total, "Clones").colors("red")]).render();  
+          dc.lineChart("#dc-line-chart").group(total, "Visitors").colors("blue").renderDataPoints(true),
+          dc.lineChart("#dc-line-chart").group(c_total, "Clones").colors("red").renderDataPoints(true)]).render();  
     });
   });
 
