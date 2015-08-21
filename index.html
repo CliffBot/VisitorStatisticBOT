@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="dc.css"/>
+<title>TaipeiMRT</title>
+  
+
+<div id="body">
+  <div id="charts">
+  <div class='pie-graph span4' id='dc-line-chart'>
+    <h4>Visitors</h4>
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter/1.3.12/crossfilter.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.js"></script>
+<script type="text/javascript" src="http://dc-js.github.io/dc.js/js/dc.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>
+var url_traffic = "https://raw.githubusercontent.com/CliffBot/VisitorStatisticBOT/TaipeiMRT/traffic.json";
+var url_clone =  "https://raw.githubusercontent.com/CliffBot/VisitorStatisticBOT/TaipeiMRT/clone.json";
+d3.json(url_traffic,function(error, flights) {
+    temp = 0;
+    flights.forEach(function(d, i) {
+      d.index = i;
+      d.date = parseDate(d.bucket);
+      d.total = temp+d.total;
+      temp = d.total;
+    });
+    function parseDate(d) {
+      return new Date(d*1000);
+    }
+    var flight = crossfilter(flights),
+        all = flight.groupAll(),
+        date = flight.dimension(function(d) { return d.date; }),
+        total = date.group().reduceSum(function(d){return d.total;})
+
+    d3.json(url_clone,function(error, clones) {
+      temp = 0;
+      clones.forEach(function(d, i) {
+        d.total = temp+d.total;
+        d.date = parseDate(d.bucket);
+        temp = d.total;
+      });
+      function parseDate(d) {
+        return new Date(d*1000);
+      }
+      var clone = crossfilter(clones),
+          c_all = clone.groupAll(),
+          c_date = clone.dimension(function(d) { return d.date; }),
+          c_total = c_date.group().reduceSum(function(d){return d.total;})
+
+      dc.compositeChart("#dc-line-chart")
+        .width(768)
+        .height(480)
+        .x(d3.time.scale().domain([new Date(2015, 8, 1), new Date(2016, 8, 30)]))
+        .brushOn(false)
+        .renderLabel(true)
+        .renderHorizontalGridLines(true)
+        .elasticX(true)
+        .dimension(date)
+        .compose([
+          dc.lineChart("#dc-line-chart").group(total).colors("blue"),
+          dc.lineChart("#dc-line-chart").group(c_total).colors("red")]).render();  
+    });
+  });
+
+
+
+</script>
